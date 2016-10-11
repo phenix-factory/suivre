@@ -2,7 +2,7 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
- }
+}
 
 function action_suivre_auteur_dist($arg = null) {
 	if (is_null($arg)) {
