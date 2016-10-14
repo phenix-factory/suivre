@@ -21,13 +21,12 @@ function suivre_autoriser() {}
 
 function autoriser_auteur_suivre_dist($faire, $type, $id, $qui, $opt) {
 
-	// On ne peux pas ce suivre soit même
-	if ($id == $qui['id_auteur']) {
-		return false;
-	}
-
 	// Il faut être un véritable auteur
 	if (empty($qui['id_auteur'])) {
+		return false;
+	}
+	// On ne peux pas ce suivre soit même
+	if ($id == $qui['id_auteur']) {
 		return false;
 	}
 
