@@ -4,6 +4,14 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
+/**
+ * Suivre un auteur
+ *
+ * @param int $id_auteur_suivre
+ * @param int (optionnel) $id_auteur_source S'il n'y en a pas, celui présent
+ * dans la session sera utilisé
+ * @access public
+ */
 function inc_suivre_auteur_dist($id_auteur_suivre, $id_auteur_source = null) {
 
 	include_spip('action/editer_liens');
