@@ -11,20 +11,35 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
- }
+}
 
 /**
  * Fonction d'appel pour le pipeline
  * @pipeline autoriser */
-function suivre_autoriser(){}
+function suivre_autoriser() {}
 
-function autoriser_suivre_auteur_dist($faire, $type, $id, $qui, $opt) {
+
+function autoriser_auteur_suivre_dist($faire, $type, $id, $qui, $opt) {
+
+	// On ne peux pas ce suivre soit même
+	if ($id == $qui['id_auteur']) {
+		return false;
+	}
 
 	// Il faut être un véritable auteur
-	if ($qui['id_auteur'] !== 0) {
+	if (empty($qui['id_auteur'])) {
 		return false;
 	}
 
 	// On ne peu pas suivre quelqu'un que l'on suis déjà
-	include_spip('inc/editer_liens');
+	include_spip('action/editer_liens');
+	$liens = objet_trouver_liens(
+		array('auteur' => $qui['id_auteur']),
+		array('auteur' => $id)
+	);
+	if (!empty($liens)) {
+		return false;
+	}
+
+	return true;
 }
