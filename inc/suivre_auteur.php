@@ -40,7 +40,12 @@ function id_auteur_session($id_auteur) {
 	}
 }
 
-	objet_associer(
+function quitter_auteur($id_auteur_suivre, $id_auteur_source = null) {
+
+	include_spip('action/editer_liens');
+	$id_auteur_source = id_auteur_session($id_auteur_source);
+
+	return objet_dissocier(
 		array('auteur' => $id_auteur_source),
 		array('auteur' => $id_auteur_suivre)
 	);
