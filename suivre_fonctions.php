@@ -13,6 +13,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
+// Include l'API pour la balise
+include_spip('inc/suivre_auteur');
+
 /**
  * Test l'existence d'un id_auteur. Sinon, va chercher celui de la session
  *
@@ -28,4 +31,10 @@ function id_auteur_session($id_auteur) {
 	} else {
 		return $id_auteur;
 	}
+}
+
+function balise_ABONNEMENT_AUTEUR_dist($p) {
+	$p->code = "lister_abonnement_auteur()";
+
+	return $p;
 }
