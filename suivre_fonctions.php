@@ -38,3 +38,28 @@ function balise_ABONNEMENT_AUTEUR_dist($p) {
 
 	return $p;
 }
+
+/**
+ * Tester si un auteur en suis un autre
+ *
+ * @param int $id_auteur_suivre
+ * @param int $id_auteur_source optionnel pris dans la session si null
+ * @access public
+ * @return bool
+ */
+function suivre_tester_lien($id_auteur_suivre, $id_auteur_source = null) {
+
+	$id_auteur_source = id_auteur_session($id_auteur_source);
+
+	// On ne peu pas suivre quelqu'un que l'on suis déjà
+	include_spip('action/editer_liens');
+	$liens = objet_trouver_liens(
+		array('auteur' => $id_auteur_source),
+		array('auteur' => $id_auteur_suivre)
+	);
+	if (!empty($liens)) {
+		return false;
+	} else {
+		return true;
+	}
+}
