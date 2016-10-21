@@ -30,15 +30,8 @@ function autoriser_auteur_suivre_dist($faire, $type, $id, $qui, $opt) {
 		return false;
 	}
 
-	// On ne peu pas suivre quelqu'un que l'on suis déjà
-	include_spip('action/editer_liens');
-	$liens = objet_trouver_liens(
-		array('auteur' => $qui['id_auteur']),
-		array('auteur' => $id)
-	);
-	if (!empty($liens)) {
-		return false;
-	}
+	include_spip('suivre_fonctions');
 
-	return true;
+	// On ne peu pas suivre quelqu'un que l'on suis déjà
+	return suivre_tester_lien($id, $qui['id_auteur']);
 }
