@@ -22,7 +22,7 @@ function suivre_autoriser() {}
 function autoriser_auteur_suivre_dist($faire, $type, $id, $qui, $opt) {
 
 	// Il faut être un véritable auteur
-	if (empty($qui['id_auteur'])) {
+	if ($qui['id_auteur'] == 0) {
 		return false;
 	}
 	// On ne peux pas ce suivre soit même
