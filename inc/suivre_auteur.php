@@ -56,3 +56,15 @@ function lister_abonnement_auteur($id_auteur = null) {
 
 	return $liste_abonnement;
 }
+
+/**
+ * Compte le nombre d'abonnements d'un auteur
+ *
+ * @param mixed $id_auteur (optionnel)
+ * @access public
+ * @return int
+ */
+function compter_abonnement_auteur($id_auteur = null) {
+	$abonnement = lister_abonnement_auteur($id_auteur);
+	return count($abonnement);
+}
