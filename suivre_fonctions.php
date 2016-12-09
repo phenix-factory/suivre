@@ -37,11 +37,19 @@ function balise_ABONNEMENT_AUTEUR_dist($p) {
 	$p->code = "lister_abonnement_auteur()";
 	return $p;
 }
+
+function balise_ABONNE_AUTEUR_dist($p) {
+	$p->code = "lister_abonne_auteur()";
+	return $p;
+}
+
 function balise_COMPTEUR_ABONNEMENT_dist($p) {
 	$p->code = "compter_abonnement_auteur()";
 	return $p;
 }
 
+function balise_COMPTEUR_ABONNE_dist($p) {
+	$p->code = "compter_abonne_auteur()";
 	return $p;
 }
 

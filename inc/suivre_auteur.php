@@ -68,3 +68,36 @@ function compter_abonnement_auteur($id_auteur = null) {
 	$abonnement = lister_abonnement_auteur($id_auteur);
 	return count($abonnement);
 }
+
+/**
+ * Renvoie un tableau contenant la liste des abonnés de l'auteur
+ *
+ * @param int $id_auteur (optionnel)
+ * @access public
+ * @return array
+ */
+function lister_abonne_auteur($id_auteur = null) {
+	include_spip('action/editer_liens');
+
+	$id_auteur = id_auteur_session($id_auteur);
+
+	$liens = objet_trouver_liens(
+		array('auteur' => '*'),
+		array('auteur' => $id_auteur)
+	);
+	$liste_abonne = array_column($liens, 'id_auteur');
+
+	return $liste_abonne;
+}
+
+/**
+ * Compte le nombre d'abonnés d'un auteur
+ *
+ * @param mixed $id_auteur (optionnel)
+ * @access public
+ * @return int
+ */
+function compter_abonne_auteur($id_auteur = null) {
+	$abonnement = lister_abonne_auteur($id_auteur);
+	return count($abonnement);
+}
