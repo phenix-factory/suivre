@@ -1,0 +1,10 @@
+[(#REM)
+Bouton suivre qui ce transforme automatiquement en "ne plus suivre"
+]
+[(#AUTORISER{suivre, auteur, #ID_AUTEUR}|oui|et{#SESSION{id_auteur}!={#ID_AUTEUR}|oui})
+[(#BOUTON_ACTION{<:suivre:suivre:>, #URL_ACTION_AUTEUR{suivre_auteur, #ID_AUTEUR, #SELF}, button, <:suivre:confirmer_suivre:>})]
+]
+
+[(#AUTORISER{suivre, auteur, #ID_AUTEUR}|non|et{#SESSION{id_auteur}|!={#ID_AUTEUR}|oui}|et{#AUTORISER{connecter}|oui})
+[(#BOUTON_ACTION{<:suivre:fin_suivre:>, #URL_ACTION_AUTEUR{quitter_auteur, #ID_AUTEUR, #SELF}, button, <:suivre:confirmer_fin_suivre:>})]
+]
