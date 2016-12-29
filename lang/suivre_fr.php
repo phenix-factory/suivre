@@ -17,5 +17,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_page_configurer_suivre' => 'Configuration de la gestion des liens entre auteurs',
 
 	// P
-	'pas_abonnement' => "Vous n'avez pas encore d'abonnements"
+	'pas_abonnement' => "Vous n'avez pas encore d'abonnements",
+	'suivre' => "S'abonner",
+	'fin_suivre' => "Se désabonner",
+	'confirmer_suivre' => "S'abonner à cet auteur ?",
+	'confirmer_fin_suivre' => 'Se désabonner ?'
 );
