@@ -19,10 +19,16 @@ function inc_suivre_auteur_dist($id_auteur_suivre, $id_auteur_source = null) {
 	include_spip('action/editer_liens');
 	$id_auteur_source = id_auteur_session($id_auteur_source);
 
-	return objet_associer(
+	$res = objet_associer(
 		array('auteur' => $id_auteur_source),
 		array('auteur' => $id_auteur_suivre)
 	);
+
+	// On invalide les caches
+	include_spip('inc/invalideur');
+	suivre_invalideur("id='auteur/$id_auteur_suivre'");
+
+	return $res;
 }
 
 function quitter_auteur($id_auteur_suivre, $id_auteur_source = null) {
@@ -30,10 +36,16 @@ function quitter_auteur($id_auteur_suivre, $id_auteur_source = null) {
 	include_spip('action/editer_liens');
 	$id_auteur_source = id_auteur_session($id_auteur_source);
 
-	return objet_dissocier(
+	$res = objet_dissocier(
 		array('auteur' => $id_auteur_source),
 		array('auteur' => $id_auteur_suivre)
 	);
+
+	// On invalide les caches
+	include_spip('inc/invalideur');
+	suivre_invalideur("id='auteur/$id_auteur_suivre'");
+
+	return $res;
 }
 
 /**
