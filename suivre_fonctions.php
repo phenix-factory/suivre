@@ -34,22 +34,42 @@ function id_auteur_session($id_auteur) {
 }
 
 function balise_ABONNEMENT_AUTEUR_dist($p) {
-	$p->code = "lister_abonnement_auteur()";
+	$id_auteur = interprete_argument_balise(1, $p);
+	if (empty($id_auteur)) {
+		$id_auteur = champ_sql('id_auteur', $p);
+	}
+
+	$p->code = "lister_abonnement_auteur($id_auteur)";
 	return $p;
 }
 
 function balise_ABONNE_AUTEUR_dist($p) {
-	$p->code = "lister_abonne_auteur()";
+	$id_auteur = interprete_argument_balise(1, $p);
+	if (empty($id_auteur)) {
+		$id_auteur = champ_sql('id_auteur', $p);
+	}
+
+	$p->code = "lister_abonne_auteur($id_auteur)";
 	return $p;
 }
 
 function balise_COMPTEUR_ABONNEMENT_dist($p) {
-	$p->code = "compter_abonnement_auteur()";
+	$id_auteur = interprete_argument_balise(1, $p);
+	if (empty($id_auteur)) {
+		$id_auteur = champ_sql('id_auteur', $p);
+	}
+
+	$p->code = "compter_abonnement_auteur($id_auteur)";
 	return $p;
 }
 
 function balise_COMPTEUR_ABONNE_dist($p) {
-	$p->code = "compter_abonne_auteur()";
+	$id_auteur = interprete_argument_balise(1, $p);
+	if (empty($id_auteur)) {
+		$id_auteur = champ_sql('id_auteur', $p);
+	}
+
+	$p->code = "compter_abonne_auteur($id_auteur)";
 	return $p;
 }
 
