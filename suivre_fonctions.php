@@ -25,7 +25,7 @@ include_spip('inc/suivre_auteur');
  */
 function id_auteur_session($id_auteur) {
 
-	if (is_null($id_auteur_source)) {
+	if (is_null($id_auteur)) {
 		include_spip('inc/session');
 		return session_get('id_auteur');
 	} else {
